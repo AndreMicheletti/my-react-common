@@ -3,10 +3,8 @@ import { View, Text, Picker } from 'react-native';
 
 class PickerInput extends React.Component {
 
-
   getStyles() {
     const { fontSize, extraInputStyle } = this.props;
-
     return {
       containerStyle: {
         height: 40,

@@ -3,34 +3,15 @@ import { TextInput, View, Text } from 'react-native'
 
 class InputText extends React.Component {
 
-  getStyles() {
-    return {
-      containerStyle: {
-        height: 40,
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center'
-      },
-      textStyle: {
-        fontSize: 16,
-        paddingLeft: 5,
-        flex: 1
-      },
-      inputStyle: {
-        color: '#000',
-        paddingRight: 5,
-        paddingLeft: 10,
-        fontSize: 16,
-        flex: 2,
-        ...this.props.extraInputStyle
-      }
-    };
-  }
-
   renderLabel() {
-    if (this.props.label !== null) {
+    const { label } = this.props;
+    const { textStyle } = styles;
+
+    if (label !== null) {
       return (
-        <Text style={textStyle}>{this.props.label}</Text>
+        <Text style={textStyle}>
+          {label}
+        </Text>
       );
     } else {
       return null;
@@ -38,7 +19,8 @@ class InputText extends React.Component {
   }
 
   render() {
-    const { textStyle, inputStyle, containerStyle } = this.getStyles();
+    const { containerStyle } = styles;
+    let inputStyle = { ...styles.inputStyle, ...this.props.extraInputStyle};
 
     return(
       <View style={containerStyle}>
@@ -60,5 +42,26 @@ InputText.defaultProps = {
   secureTextEntry: false,
   extraInputStyle: {},
 }
+
+const styles = {
+  containerStyle: {
+    height: 40,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  textStyle: {
+    fontSize: 16,
+    paddingLeft: 5,
+    flex: 1
+  },
+  inputStyle: {
+    color: '#000',
+    paddingRight: 5,
+    paddingLeft: 10,
+    fontSize: 16,
+    flex: 2
+  }
+};
 
 export { InputText };

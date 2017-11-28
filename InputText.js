@@ -28,6 +28,7 @@ class InputText extends React.Component {
   }
 
   renderLabel() {
+    const { textStyle } = this.getStyles();
     if (this.props.label !== null) {
       return (
         <Text style={textStyle}>{this.props.label}</Text>

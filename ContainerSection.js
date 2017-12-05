@@ -4,7 +4,7 @@ import { View } from 'react-native'
 class ContainerSection extends React.Component {
   render() {
     return (
-      <View style={styles.sectionStyle}>
+      <View style={[styles.sectionStyle, this.props.style]}>
         {this.props.children}
       </View>
     );

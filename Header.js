@@ -6,8 +6,8 @@ class Header extends React.Component {
   render() {
     const { headerStyle, textStyle } = this.getStyles();
     return (
-      <View style={headerStyle}>
-        <Text style={textStyle}>{this.props.text}</Text>
+      <View style={[headerStyle, this.props.style]}>
+        <Text style={[textStyle, this.props.textStyle]}>{this.props.text}</Text>
       </View>
     );
   }
@@ -34,7 +34,9 @@ class Header extends React.Component {
 }
 
 Header.defaultProps = {
-  color: '#F8F8F8'
+  color: '#F8F8F8',
+  style: {},
+  textStyle: {}
 };
 
 export { Header }
